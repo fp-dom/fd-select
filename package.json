@@ -1,6 +1,6 @@
 {
-  "name": "fp-select",
-  "version": "1.0.0",
+  "name": "fd-select",
+  "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,11 +8,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fp-dom/fp-select.git"
+    "url": "https://github.com/fd-dom/fd-select.git"
   },
   "keywords": [
-    "fp-dom",
-    "fp",
+    "fd-dom",
+    "fd",
     "dom"
   ],
   "contributors": [
@@ -21,9 +21,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fp-dom/fp-select/issues"
+    "url": "https://github.com/fd-dom/fd-select/issues"
   },
-  "homepage": "https://github.com/fp-dom/fp-select",
+  "homepage": "https://github.com/fd-dom/fd-select",
   "devDependencies": {
     "6to5": "^3.1.1",
     "gulp": "^3.8.10",

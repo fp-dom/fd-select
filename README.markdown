@@ -1,17 +1,17 @@
-# fp-select
+# fd-select
 
-[![Build Status](https://travis-ci.org/fp-dom/fp-select.svg)](https://travis-ci.org/fp-dom/fp-select) [![npm version](https://badge.fury.io/js/fp-select.svg)](http://badge.fury.io/js/fp-select)
-> Select DOM elements, FP style.
+[![Build Status](https://travis-ci.org/fd-dom/fd-select.svg)](https://travis-ci.org/fd-dom/fd-select) [![npm version](https://badge.fury.io/js/fd-select.svg)](http://badge.fury.io/js/fd-select)
+> Select DOM elements, FD style.
 
 
 ## Installation
 
-`npm install fp-select --save`
+`npm install fd-select --save`
 
 ## Usage
 
 ```js
-var select = require('fp-select');
+var select = require('fd-select');
 var foo = select(document)('.foo');
 // or
 var foo = select('.foo');
