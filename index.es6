@@ -1,6 +1,7 @@
 const doc = document.body,
   curry = require('fj-curry').curry,
-  isDom = require('is');
+  isDom = require('is-dom');
+  require("6to5/polyfill");
 
 export function select(dom, selector) {
   if(typeof dom === 'string') {
