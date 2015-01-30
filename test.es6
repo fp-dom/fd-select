@@ -1,5 +1,5 @@
 import test from 'prova';
-import { fpSelect } from './';
+import { select } from './';
 
 
 test('fp-select', (t) => {
@@ -10,5 +10,8 @@ test('fp-select', (t) => {
   <li class="fruit">orange</li>
   <li class="fruit">plum</li>
   </ul>`;
-  t.equal(fpSelect(HTML)('.fruits').attr('data-foo'), 'bar');
+  var fixture = document.createElement('div');
+  fixture.innerHTML=HTML;
+  document.body.appendChild(fixture);
+  t.equal(select(fixture)('.fruits').attr('data-foo'), 'bar');
 });

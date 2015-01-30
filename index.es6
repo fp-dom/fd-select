@@ -1,6 +1,6 @@
 const doc = document.body,
   curry = require('fj-curry').curry,
-  isDom = require('is-dom');
+  isDom = require('is');
 
 export function select(dom, selector) {
   if(typeof dom === 'string') {
