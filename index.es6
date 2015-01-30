@@ -1,14 +1,18 @@
 const doc = document.body,
   curry = require('fj-curry').curry,
-  isDom = require('is');
+  isDom = require('is-dom'),
+  slice = [].slice,
+  sliceIt = (nodeList) => slice.call(nodeList);
 
 export function select(dom, selector) {
+
   if(typeof dom === 'string') {
-    return [ ... doc.querySelectorAll(dom) ];
+    return sliceIt(doc.querySelectorAll(dom));
   }
-  // needs a isDom check.
+
   if (isDom(dom) && selector) {
-    return [ ... dom.querySelectorAll(selector) ];
+    return sliceIt(dom.querySelectorAll(selector));
   }
+
   return curry(select)(dom);
 }
