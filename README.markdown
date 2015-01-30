@@ -1,7 +1,7 @@
 # fp-select
 
-[![Build Status](https://travis-ci.fp-dom/fp-dom/fp-select.svg)](https://travis-ci.fp-dom/fp-dom/fp-select) [![npm version](https://badge.fury.io/js/fp-select.svg)](http://badge.fury.io/js/fp-select)
-> This is a template repo for fp-dom.
+[![Build Status](https://travis-ci.org-dom/fp-dom/fp-select.svg)](https://travis-ci.org/fp-dom/fp-select) [![npm version](https://badge.fury.io/js/fp-select.svg)](http://badge.fury.io/js/fp-select)
+> Select DOM elements, FP style.
 
 
 ## Installation
