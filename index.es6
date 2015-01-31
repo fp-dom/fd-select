@@ -10,9 +10,9 @@ export function select(dom, selector) {
   return ifElse(
     () => typeof dom === 'string',
     () => [ ... doc.querySelectorAll(dom) ],
-    ifElse(
-      and(() => isDom(dom),() => !!selector),
-      () => () => [ ... dom.querySelectorAll(selector) ],
+    () => ifElse(
+      and(isDom(dom),() => !!selector),
+      () => [ ... dom.querySelectorAll(selector) ],
       () => curry(select)(dom)
     )
   );
