@@ -8,6 +8,7 @@ var doc = document.body,
     isDom = require("is-dom"),
     ifElse = require("fj-ifelse"),
     and = require("fj-and");
+
 require("6to5/polyfill");
 
 function select(dom, selector) {

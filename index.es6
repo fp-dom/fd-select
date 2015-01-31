@@ -3,7 +3,8 @@ const doc = document.body,
   isDom = require('is-dom'),
   ifElse = require('fj-ifelse'),
   and = require('fj-and');
-  require("6to5/polyfill");
+
+require('6to5/polyfill');
 
 export function select(dom, selector) {
   return ifElse(
@@ -15,3 +16,4 @@ export function select(dom, selector) {
       () => curry(select)(dom)
     )
   );
+}
