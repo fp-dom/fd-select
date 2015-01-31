@@ -5,7 +5,7 @@ var _toArray = function (arr) { return Array.isArray(arr) ? arr : Array.from(arr
 exports.select = select;
 var doc = document.body,
     curry = require("fj-curry").curry,
-    isDom = require("is-dom"),
+    isDom = require("fd-isDom"),
     ifElse = require("fj-ifelse"),
     and = require("fj-and");
 

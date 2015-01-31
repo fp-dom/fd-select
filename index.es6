@@ -1,6 +1,6 @@
 const doc = document.body,
   curry = require('fj-curry').curry,
-  isDom = require('is-dom'),
+  isDom = require('fd-isDom'),
   ifElse = require('fj-ifelse'),
   and = require('fj-and');
 
