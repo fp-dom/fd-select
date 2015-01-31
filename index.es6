@@ -15,4 +15,3 @@ export function select(dom, selector) {
       () => curry(select)(dom)
     )
   );
-}
