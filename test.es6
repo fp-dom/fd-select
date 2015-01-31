@@ -3,7 +3,7 @@ import { select } from './';
 
 
 test('fp-select', (t) => {
-  t.plan(1);
+  t.plan(4);
   const HTML =  `
     <ul data-foo="bar" class="fruits">
     <li class="fruit">apple</li>
@@ -14,5 +14,9 @@ test('fp-select', (t) => {
   var fixture = document.createElement('div');
   fixture.innerHTML=HTML;
   document.body.appendChild(fixture);
+  
+  t.equal(typeof select(fixture),"function");
+  t.equal(select('.fruits').length, 1);
   t.equal(select(fixture)('.fruits').length,1);
+  t.equal(!!select(null),true);
 });

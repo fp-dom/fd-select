@@ -35,8 +35,9 @@
     "prova": "^2.1.1"
   },
   "dependencies": {
+    "fd-isdom": "^1.0.1",
+    "fj-and": "^1.0.0",
     "fj-curry": "^1.0.0",
-    "is-dom": "^1.0.4",
-    "prova": "^2.1.1"
+    "fj-ifelse": "^1.0.1"
   }
 }

@@ -1,15 +1,18 @@
 const doc = document.body,
   curry = require('fj-curry').curry,
-  isDom = require('is-dom');
+  isDom = require('is-dom'),
+  ifElse = require('fj-ifelse'),
+  and = require('fj-and');
   require("6to5/polyfill");
 
 export function select(dom, selector) {
-  if(typeof dom === 'string') {
-    return [ ... doc.querySelectorAll(dom) ];
-  }
-  // needs a isDom check.
-  if (isDom(dom) && selector) {
-    return [ ... dom.querySelectorAll(selector) ];
-  }
-  return curry(select)(dom);
+  return ifElse(
+    () => typeof dom === 'string',
+    () => [ ... doc.querySelectorAll(dom) ],
+    ifElse(
+      and(() => isDom(dom),() => !!selector),
+      () => () => [ ... dom.querySelectorAll(selector) ],
+      () => curry(select)(dom)
+    )
+  );
 }
