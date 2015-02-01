@@ -3,6 +3,7 @@ var gulp = require('gulp'),
   run = require('gulp-run'),
   sourcemaps = require('gulp-sourcemaps'),
   rename = require('gulp-rename'),
+  mochify = require('mochify'),
   to5 = require('gulp-6to5');
 
 gulp.task('6to5', function() {
@@ -20,8 +21,10 @@ gulp.task('6to5', function() {
 });
 
 gulp.task('test', ['6to5'], function() {
-  return gulp.src('test.js')
-    .pipe(run('node test -b -l phantom -e -q -o 8080 -d localhost'));
+
+  mochify('./test.js', {
+    reporter: 'tap'
+  }).bundle();
 });
 
 gulp.task('default', ['test'], function() {

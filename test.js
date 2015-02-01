@@ -2,28 +2,27 @@
 
 var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
 
-var test = _interopRequire(require("prova"));
+var assert = _interopRequire(require("assert"));
 
 var select = require("./").select;
 
 
 
-test("fp-select", function (t) {
-  t.plan(6);
+it("fp-select", function () {
   var HTML = "\n    <ul data-foo=\"bar\" class=\"fruits\">\n    <li class=\"fruit\">apple</li>\n    <li class=\"fruit\">orange</li>\n    <li class=\"fruit\">plum</li>\n    </ul>\n  ";
   var fixture = document.createElement("div");
   fixture.innerHTML = HTML;
   document.body.appendChild(fixture);
 
-  t.equal(select(".fruits").length, 1);
-  t.equal(select(".fruits")[0].dataset.foo, "bar");
-  t.equal(select(fixture, ".fruits").length, 1);
-  t.equal(select(fixture, ".fruits")[0].dataset.foo, "bar");
-  t.equal(select(fixture)(".fruits").length, 1);
+  assert.equal(select(".fruits").length, 1);
+  assert.equal(select(".fruits")[0].dataset.foo, "bar");
+  assert.equal(select(fixture, ".fruits").length, 1);
+  assert.equal(select(fixture, ".fruits")[0].dataset.foo, "bar");
+  assert.equal(select(fixture)(".fruits").length, 1);
   try {
     select(null);
-    t.fail();
+    assert.ok(false);
   } catch (e) {
-    t.ok(true);
+    assert.ok(true);
   }
 });
