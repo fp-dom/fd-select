@@ -16,16 +16,16 @@ function select(dom, selector) {
     return typeof dom === "string";
   }, function () {
     return [].concat(_toArray(doc.querySelectorAll(dom)));
-  }, ifElse(and(function () {
-    return isDom(dom);
   }, function () {
-    return !!selector;
-  }), function () {
-    return function () {
+    return ifElse(and(function () {
+      return isDom(dom);
+    }, function () {
+      return !!selector;
+    }), function () {
       return [].concat(_toArray(dom.querySelectorAll(selector)));
-    };
-  }, function () {
-    return curry(select)(dom);
-  }));
+    }, function () {
+      return curry(select)(dom);
+    });
+  });
 }
 exports.__esModule = true;
