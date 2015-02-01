@@ -7,7 +7,7 @@ var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? ob
 var _toArray = function (arr) { return Array.isArray(arr) ? arr : Array.from(arr); };
 
 exports.select = select;
-var to5 = _interopRequireWildcard(require("6to5/polyfill"));
+var to5 = _interopRequireWildcard(require("6to5/browser-polyfill"));
 
 var curry2 = require("fj-curry").curry2;
 var isDom = _interopRequire(require("fd-isDom"));
