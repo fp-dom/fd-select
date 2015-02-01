@@ -21,7 +21,7 @@ gulp.task('6to5', function() {
 
 gulp.task('test', ['6to5'], function() {
   return gulp.src('test.js')
-    .pipe(run('node test -b -l phantom -e -q -f test.html'));
+    .pipe(run('node test -b -l phantom -e -q -o 8080 -d localhost'));
 });
 
 gulp.task('default', ['test'], function() {
