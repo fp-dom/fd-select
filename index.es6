@@ -1,19 +1,33 @@
-const doc = document.body,
-  curry = require('fj-curry').curry,
-  isDom = require('fd-isDom'),
-  ifElse = require('fj-ifelse'),
-  and = require('fj-and');
-
 require('6to5/polyfill');
+
+import { curry2 } from 'fj-curry';
+import isDom from 'fd-isDom';
+import ifElse from 'fj-ifelse';
+import and from 'fj-and';
+
+
+function isString(obj) {
+  return () => {
+    return typeof obj === 'string';
+  };
+}
+
+function wrongType() {
+  throw new TypeError();
+}
 
 export function select(dom, selector) {
   return ifElse(
-    () => typeof dom === 'string',
+    isString(dom),
     () => [ ... document.querySelectorAll(dom) ],
     () => ifElse(
-      and(() => isDom(dom),() => !!selector),
+      and(isDom(dom), () => !!selector),
       () => [ ... dom.querySelectorAll(selector) ],
-      () => curry(select)(dom)
+      () => ifElse(
+        isDom(dom),
+        () => curry2(select)(dom),
+        wrongType
+      )
     )
   );
 }
