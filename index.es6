@@ -1,4 +1,4 @@
-require('6to5/polyfill');
+import * as to5 from '6to5/polyfill';
 
 import { curry2 } from 'fj-curry';
 import isDom from 'fd-isDom';

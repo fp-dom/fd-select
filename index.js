@@ -2,10 +2,12 @@
 
 var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
 
+var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { "default": obj }; };
+
 var _toArray = function (arr) { return Array.isArray(arr) ? arr : Array.from(arr); };
 
 exports.select = select;
-require("6to5/polyfill");
+var to5 = _interopRequireWildcard(require("6to5/polyfill"));
 
 var curry2 = require("fj-curry").curry2;
 var isDom = _interopRequire(require("fd-isDom"));
