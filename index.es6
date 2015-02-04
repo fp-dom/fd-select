@@ -8,8 +8,8 @@ function of(arr) {
   return Array.prototype.slice.call(arr);
 }
 
-function isString(obj) {
-  return () => {
+function isString() {
+  return (obj) => {
     return typeof obj === 'string';
   };
 }
@@ -20,16 +20,16 @@ function wrongType() {
 
 export function select(dom, selector) {
   return ifElse(
-    isString(dom),
+    isString(),
     () => of(document.querySelectorAll(dom)),
-    () => ifElse(
-      and(isDom(dom), () => !!selector),
+    (dom) => ifElse(
+      and(isDom(), () => !!selector),
       () => of(dom.querySelectorAll(selector)),
-      () => ifElse(
-        isDom(dom),
+      (dom) => ifElse(
+        isDom(),
         () => curry2(select)(dom),
         wrongType
-      )
-    )
-  );
+      )(dom)
+    )(dom)
+  )(dom);
 }

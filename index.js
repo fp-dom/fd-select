@@ -17,8 +17,8 @@ function of(arr) {
   return Array.prototype.slice.call(arr);
 }
 
-function isString(obj) {
-  return function () {
+function isString() {
+  return function (obj) {
     return typeof obj === "string";
   };
 }
@@ -28,18 +28,18 @@ function wrongType() {
 }
 
 function select(dom, selector) {
-  return ifElse(isString(dom), function () {
+  return ifElse(isString(), function () {
     return of(document.querySelectorAll(dom));
-  }, function () {
-    return ifElse(and(isDom(dom), function () {
+  }, function (dom) {
+    return ifElse(and(isDom(), function () {
       return !!selector;
     }), function () {
       return of(dom.querySelectorAll(selector));
-    }, function () {
-      return ifElse(isDom(dom), function () {
+    }, function (dom) {
+      return ifElse(isDom(), function () {
         return curry2(select)(dom);
-      }, wrongType);
-    });
-  });
+      }, wrongType)(dom);
+    })(dom);
+  })(dom);
 }
 exports.__esModule = true;
