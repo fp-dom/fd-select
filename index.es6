@@ -1,6 +1,7 @@
 import { curry2 } from 'fj-curry';
 import isDom from 'fd-isDom';
-import ifElse from 'fj-ifelse';
+import cond from 'fj-cond';
+import always from 'fj-always';
 import and from 'fj-and';
 
 
@@ -19,17 +20,10 @@ function wrongType() {
 }
 
 export function select(dom, selector) {
-  return ifElse(
-    isString(),
-    () => of(document.querySelectorAll(dom)),
-    (dom) => ifElse(
-      and(isDom(), () => !!selector),
-      () => of(dom.querySelectorAll(selector)),
-      (dom) => ifElse(
-        isDom(),
-        () => curry2(select)(dom),
-        wrongType
-      )(dom)
-    )(dom)
-  )(dom);
+  return cond([
+    [isString(), () => of(document.querySelectorAll(dom))],
+    [and(isDom(), () => !!selector), () => of(dom.querySelectorAll(selector))],
+    [isDom(), () => curry2(select)(dom)],
+    [always(true), wrongType]
+  ])(dom);
 }

@@ -6,7 +6,9 @@ exports.select = select;
 var curry2 = require("fj-curry").curry2;
 var isDom = _interopRequire(require("fd-isDom"));
 
-var ifElse = _interopRequire(require("fj-ifelse"));
+var cond = _interopRequire(require("fj-cond"));
+
+var always = _interopRequire(require("fj-always"));
 
 var and = _interopRequire(require("fj-and"));
 
@@ -28,18 +30,14 @@ function wrongType() {
 }
 
 function select(dom, selector) {
-  return ifElse(isString(), function () {
+  return cond([[isString(), function () {
     return of(document.querySelectorAll(dom));
-  }, function (dom) {
-    return ifElse(and(isDom(), function () {
-      return !!selector;
-    }), function () {
-      return of(dom.querySelectorAll(selector));
-    }, function (dom) {
-      return ifElse(isDom(), function () {
-        return curry2(select)(dom);
-      }, wrongType)(dom);
-    })(dom);
-  })(dom);
+  }], [and(isDom(), function () {
+    return !!selector;
+  }), function () {
+    return of(dom.querySelectorAll(selector));
+  }], [isDom(), function () {
+    return curry2(select)(dom);
+  }], [always(true), wrongType]])(dom);
 }
 exports.__esModule = true;

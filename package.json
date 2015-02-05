@@ -36,8 +36,9 @@
   },
   "dependencies": {
     "fd-isdom": "^1.1.1",
+    "fj-always": "^1.0.0",
     "fj-and": "^1.0.1",
-    "fj-curry": "^1.0.0",
-    "fj-ifelse": "^1.1.0"
+    "fj-cond": "^1.0.0",
+    "fj-curry": "^1.0.0"
   }
 }
