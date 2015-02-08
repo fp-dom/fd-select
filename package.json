@@ -1,7 +1,7 @@
 {
   "name": "fd-select",
   "version": "1.3.2",
-  "description": "",
+  "description": "Select DOM elements, FD style.",
   "main": "index.js",
   "scripts": {
     "test": "gulp test"
