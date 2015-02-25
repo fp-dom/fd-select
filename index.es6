@@ -3,9 +3,11 @@ import isDom from 'fd-isdom';
 import cond from 'fj-cond';
 import always from 'fj-always';
 import and from 'fj-and';
+import typeOf from 'fj-typeof';
 
 
 let ELSE = always(true);
+let isString = typeOf('string');
 
 function toArray(arr) {
   return Array.prototype.slice.call(arr);
@@ -13,12 +15,6 @@ function toArray(arr) {
 
 function identity(arr) {
   return arr;
-}
-
-function isString() {
-  return (obj) => {
-    return typeof obj === 'string';
-  };
 }
 
 function wrongType() {
@@ -35,7 +31,7 @@ function queryOne(dom, selector) {
 
 function _select(queryFn, wrap, dom, selector) {
   return cond([
-    [isString(), () => wrap(queryFn(document, dom))],
+    [isString, () => wrap(queryFn(document, dom))],
     [and(isDom(), () => !!selector), () => wrap(queryFn(dom, selector))],
     [isDom(), () => curry4(_select)(queryFn)(wrap)(dom)],
     [ELSE, wrongType]

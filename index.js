@@ -11,10 +11,13 @@ var always = _interopRequire(require("fj-always"));
 
 var and = _interopRequire(require("fj-and"));
 
+var typeOf = _interopRequire(require("fj-typeof"));
+
 
 
 
 var ELSE = always(true);
+var isString = typeOf("string");
 
 function toArray(arr) {
   return Array.prototype.slice.call(arr);
@@ -22,12 +25,6 @@ function toArray(arr) {
 
 function identity(arr) {
   return arr;
-}
-
-function isString() {
-  return function (obj) {
-    return typeof obj === "string";
-  };
 }
 
 function wrongType() {
@@ -43,7 +40,7 @@ function queryOne(dom, selector) {
 }
 
 function _select(queryFn, wrap, dom, selector) {
-  return cond([[isString(), function () {
+  return cond([[isString, function () {
     return wrap(queryFn(document, dom));
   }], [and(isDom(), function () {
     return !!selector;
@@ -61,4 +58,6 @@ var select = exports.select = function (dom, selector) {
 var selectOne = exports.selectOne = function (dom, selector) {
   return _select(queryOne, identity, dom, selector);
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
