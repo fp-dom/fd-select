@@ -8,10 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fd-dom/fd-select.git"
+    "url": "https://github.com/fp-dom/fd-select.git"
   },
   "keywords": [
-    "fd-dom",
+    "fp-dom",
     "fd",
     "dom"
   ],
