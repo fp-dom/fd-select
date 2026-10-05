@@ -1,10 +1,10 @@
 {
   "name": "fd-select",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "Select DOM elements, FD style.",
   "main": "index.js",
   "scripts": {
-    "test": "gulp test"
+    "test": "node --check index.js"
   },
   "repository": {
     "type": "git",
@@ -25,14 +25,7 @@
   },
   "homepage": "https://github.com/fd-dom/fd-select",
   "devDependencies": {
-    "6to5": "^3.1.1",
-    "gulp": "^3.8.10",
-    "gulp-6to5": "^3.0.0",
-    "gulp-rename": "^1.2.0",
-    "gulp-run": "^1.6.6",
-    "gulp-sourcemaps": "^1.3.0",
-    "gulp-watch": "^4.1.0",
-    "mochify": "^2.2.0"
+    "6to5": "^3.1.1"
   },
   "dependencies": {
     "fd-isdom": "^1.1.1",
